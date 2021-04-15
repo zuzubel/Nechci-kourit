@@ -1,0 +1,12 @@
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+}
+
+#app {
+}
+
+@media screen and (min-width: 768px) {
+  #app {
+  }
+}
