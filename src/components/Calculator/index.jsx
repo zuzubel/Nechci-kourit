@@ -5,18 +5,18 @@ export const Calculator = () => {
   const [cigarettesPerDay, setCigarettesPerDay] = useState('');
   const [packageCost, setPackageCost] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  
+
   const pricePerDay = useMemo(() => {
     if (packageCost === '' || cigarettesPerDay === '') {
       return 0;
     }
-    
-    return (Number(packageCost) / 20) * Number(cigarettesPerDay)
-  }, [packageCost, cigarettesPerDay])
 
-  const pricePerMonth = useMemo(() =>  pricePerDay * 30, [pricePerDay])
-  
-  const pricePerYear = useMemo(() => pricePerMonth * 12, [pricePerMonth])
+    return (Number(packageCost) / 20) * Number(cigarettesPerDay);
+  }, [packageCost, cigarettesPerDay]);
+
+  const pricePerMonth = useMemo(() => pricePerDay * 30, [pricePerDay]);
+
+  const pricePerYear = useMemo(() => pricePerMonth * 12, [pricePerMonth]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,43 +28,58 @@ export const Calculator = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Kolik cigaret denně vykouříte?
-          <input
-            type="number"
-            value={cigarettesPerDay}
-            onChange={(e) => setCigarettesPerDay(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <label>
-          Kolik Vás stojí krabička cigaret?
-          <input
-            type="number"
-            value={packageCost}
-            onChange={(e) => setPackageCost(e.target.value)}
-            required
-          />
-        </label>
-        <br />
-        <button
-          type="submit"
-          disabled={cigarettesPerDay === '' || packageCost === ''}
-        >
-          Vypočítat
-        </button>
+      <div className="formContainer">
+        <form className="calculatorForm" onSubmit={handleSubmit}>
+          <div className="inputsContainer">
+            <label className="calculatorLabel">
+              Kolik cigaret denně vykouříte?
+              <input
+                className="calculatorInput"
+                type="number"
+                value={cigarettesPerDay}
+                onChange={(e) => setCigarettesPerDay(e.target.value)}
+                required
+              />
+            </label>
+            <br />
+            <label className="calculatorLabel">
+              Kolik Vás stojí krabička cigaret?
+              <input
+                className="calculatorInput"
+                type="number"
+                value={packageCost}
+                onChange={(e) => setPackageCost(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <br />
+          <button
+            className="formButton"
+            type="submit"
+            disabled={cigarettesPerDay === '' || packageCost === ''}
+          >
+            Vypočítat 
+          </button>
 
-        <div className="result">
-          {' '}
-          {submitted
-            ? `Kouření Vás průměrně stojí: `
-            : 'Pro výpočet vyplňte požadovaná pole.'}
-          <div>{submitted ? `${pricePerMonth} korun měsíčně.` : null}</div>
-          <div>{submitted ? `${pricePerYear} korun ročně.` : null}</div>
-        </div>
-      </form>
+          <div className="resultContainer">
+            {' '}
+            {submitted
+              ? `Kouření Vás průměrně stojí: `
+              : 'Pro výpočet vyplňte požadovaná pole.'}
+            <div className="calculatorResults">
+              <p className="calculatorResult">
+                {submitted
+                  ? `${Math.round(pricePerMonth)} korun měsíčně.`
+                  : null}
+              </p>
+              <p className="calculatorResult">
+                {submitted ? `${Math.round(pricePerYear)} korun ročně.` : null}
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
