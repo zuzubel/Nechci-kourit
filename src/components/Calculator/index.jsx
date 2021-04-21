@@ -41,7 +41,9 @@ export const Calculator = () => {
                 required
               />
             </label>
+
             <br />
+
             <label className="calculatorLabel">
               Kolik Vás stojí krabička cigaret?
               <input
@@ -54,19 +56,13 @@ export const Calculator = () => {
             </label>
           </div>
           <br />
-          <button
-            className="formButton"
-            type="submit"
-            disabled={cigarettesPerDay === '' || packageCost === ''}
-          >
-            Vypočítat 
+          <button className="formButton" type="submit">
+            Vypočítat
           </button>
 
           <div className="resultContainer">
             {' '}
-            {submitted
-              ? `Kouření Vás průměrně stojí: `
-              : 'Pro výpočet vyplňte požadovaná pole.'}
+            {submitted ? `Kouření Vás průměrně stojí: ` : null}
             <div className="calculatorResults">
               <p className="calculatorResult">
                 {submitted
