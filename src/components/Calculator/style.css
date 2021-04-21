@@ -1,18 +1,14 @@
-.formContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.calculatorForm {
+.calculatorFormContainer {
   margin-top: 24px;
   font-size: 16px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .inputsContainer input {
-  margin-bottom: 8px;
-  margin-left: 8px;
+  display: block;
+  margin: 8px 0 8px 0;
   padding: 4px;
   font-size: 14px;
   border: none;
@@ -23,18 +19,15 @@
 }
 
 .calculatorLabel {
-  margin-right: 8px;
   margin: 0 8px 0 8px;
 }
 
 .inputsContainer {
-  display: grid;
-  grid-template-rows: 42px auto;
-  justify-items: flex-end;
+  display: flex;
+  flex-direction: column;
 }
 
 .formButton {
-  align-self: flex-end;
   position: relative;
   width: fit-content;
   padding: 8px 16px;
@@ -84,4 +77,17 @@
 .calculatorResult {
   margin: 0;
   margin-bottom: 4px;
+}
+
+@media screen and (min-width: 560px) {
+  .inputsContainer {
+    display: grid;
+    grid-template-rows: 42px auto;
+    justify-items: flex-end;
+  }
+
+  .inputsContainer input{
+    display: inline-block;
+    margin: 0 0 0 8px;
+  }
 }
