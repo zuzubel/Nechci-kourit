@@ -86,8 +86,8 @@
     justify-items: flex-end;
   }
 
-  .inputsContainer input{
+  .inputsContainer input {
     display: inline-block;
-    margin: 0 0 0 8px;
+    margin: 0 0 16px 8px;
   }
 }

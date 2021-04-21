@@ -5,6 +5,7 @@ export const Calculator = () => {
   const [cigarettesPerDay, setCigarettesPerDay] = useState('');
   const [packageCost, setPackageCost] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [years, setYears] = useState('');
 
   const pricePerDay = useMemo(() => {
     if (packageCost === '' || cigarettesPerDay === '') {
@@ -18,10 +19,17 @@ export const Calculator = () => {
 
   const pricePerYear = useMemo(() => pricePerMonth * 12, [pricePerMonth]);
 
+  const cigarettesAlreadySmoked = useMemo(() => years * 365 * cigarettesPerDay, [years]);
+
+     const priceAlreadyPaid = useMemo(
+    () => cigarettesAlreadySmoked * (packageCost / 20),
+    [years],
+  ); 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(
-      `za den ${pricePerDay}, za měsíc ${pricePerMonth}, za rok ${pricePerYear}`,
+      `za den ${pricePerDay}, za měsíc ${pricePerMonth}, za rok ${pricePerYear}, za celý život vykouřil ${cigarettesAlreadySmoked}, za život utratil za kouření korun ${priceAlreadyPaid}`,
     );
     setSubmitted(true);
   };
@@ -53,6 +61,18 @@ export const Calculator = () => {
               required
             />
           </label>
+
+          <br />
+
+          <label className="calculatorLabel">
+            Kolikátý rok kouříte?
+            <input
+              type="number"
+              className="calculatorInput"
+              value={years}
+              onChange={(e) => setYears(e.target.value)}
+            />
+          </label>
         </div>
         <br />
         <button className="formButton" type="submit">
@@ -69,6 +89,17 @@ export const Calculator = () => {
             <p className="calculatorResult">
               {submitted ? `${Math.round(pricePerYear)} korun ročně.` : null}
             </p>
+            <p className="calculatorResult">
+              {submitted
+                ? `Vykouřeno cigaret celkem: ${cigarettesAlreadySmoked}`
+                : null}
+            </p>
+
+            {  <p className="calculatorResult">
+              {submitted
+                ? `Celkově vynaložené finance na kouření: ${Math.round(priceAlreadyPaid)}`
+                : null}
+            </p> }
           </div>
         </div>
       </form>
