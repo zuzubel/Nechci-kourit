@@ -1,0 +1,7 @@
+.backArrow {
+  background-image: url('../../../../img/Carousel/slider_icons/left.png');
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

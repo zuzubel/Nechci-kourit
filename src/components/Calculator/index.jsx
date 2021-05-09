@@ -19,17 +19,29 @@ export const Calculator = () => {
 
   const pricePerYear = useMemo(() => pricePerMonth * 12, [pricePerMonth]);
 
-  const cigarettesAlreadySmoked = useMemo(() => years * 365 * cigarettesPerDay, [years]);
+  const cigarettesAlreadySmoked = useMemo(
+    () => years * 365 * cigarettesPerDay,
+    [years],
+  );
 
-     const priceAlreadyPaid = useMemo(
+  const priceAlreadyPaid = useMemo(
     () => cigarettesAlreadySmoked * (packageCost / 20),
     [years],
-  ); 
+  );
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    priceAlreadyPaid();
+
+    /* const pricePerDay = (Number(packageCost) / 20) * Number(cigarettesPerDay);
+     const pricePerMonth = pricePerDay * 30; 
+    const pricePerYear = pricePerMonth * 12;
+    const cigarettesAlreadySmoked = years * 365 * cigarettesPerDay;
+    const priceAlreadyPaid =
+      cigarettesAlreadySmoked * (Number(packageCost) / 20);
+ */
     console.log(
-      `za den ${pricePerDay}, za měsíc ${pricePerMonth}, za rok ${pricePerYear}, za celý život vykouřil ${cigarettesAlreadySmoked}, za život utratil za kouření korun ${priceAlreadyPaid}`,
+      `cena za den ${pricePerDay}, cena za měsíc ${pricePerMonth}, cena za rok ${pricePerYear}, za celý život vykouřil ${cigarettesAlreadySmoked}, za život utratil za kouření korun ${priceAlreadyPaid}`,
     );
     setSubmitted(true);
   };
@@ -95,11 +107,15 @@ export const Calculator = () => {
                 : null}
             </p>
 
-            {  <p className="calculatorResult">
-              {submitted
-                ? `Celkově vynaložené finance na kouření: ${Math.round(priceAlreadyPaid)}`
-                : null}
-            </p> }
+            {
+              <p className="calculatorResult">
+                {submitted
+                  ? `Celkově vynaložené finance na kouření: ${Math.round(
+                      priceAlreadyPaid,
+                    )}`
+                  : null}
+              </p>
+            }
           </div>
         </div>
       </form>

@@ -16,6 +16,7 @@
   background-color: rgba(234, 239, 241, 0.678);
   outline: none;
   border-radius: 3px;
+  width: 100%;
 }
 
 .calculatorLabel {
@@ -89,5 +90,6 @@
   .inputsContainer input {
     display: inline-block;
     margin: 0 0 16px 8px;
+    width: auto;
   }
 }
