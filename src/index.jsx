@@ -6,6 +6,7 @@ import { Navigation } from './components/Navigation';
 import { HomeWelcoming } from './components/HomeScreen';
 import { Calculator } from './components/Calculator';
 import { ImageSlider } from './components/Calculator/Carousel/ImageSlider';
+import { SliderData } from './components/Calculator/Carousel/SliderData';
 
 const App = () => {
   return (
