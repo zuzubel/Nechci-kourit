@@ -1,48 +1,38 @@
 import React, { useState, useMemo } from 'react';
 import './style.css';
+import { ImageSlider } from './Carousel/ImageSlider';
+
+const getPricePerDay = (packageCost, cigarettesPerDay) => {
+  if (packageCost === '' || cigarettesPerDay === '') {
+    return 0;
+  }
+
+  return (Number(packageCost) / 20) * Number(cigarettesPerDay);
+};
+
+const getPricePerMonth = (pricePerDay) => pricePerDay * 30;
+
+const getPricePerYear = (pricePerMonth) => pricePerMonth * 12;
+
+const getCigarettesAlreadySmoked = (years, cigarettesPerDay) =>
+  years * 365 * cigarettesPerDay;
+
+const getPriceAlreadyPaid = (cigarettesAlreadySmoked, packageCost) =>
+  cigarettesAlreadySmoked * (packageCost / 20);
 
 export const Calculator = () => {
   const [cigarettesPerDay, setCigarettesPerDay] = useState('');
   const [packageCost, setPackageCost] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [years, setYears] = useState('');
-
-  const pricePerDay = useMemo(() => {
-    if (packageCost === '' || cigarettesPerDay === '') {
-      return 0;
-    }
-
-    return (Number(packageCost) / 20) * Number(cigarettesPerDay);
-  }, [packageCost, cigarettesPerDay]);
-
-  const pricePerMonth = useMemo(() => pricePerDay * 30, [pricePerDay]);
-
-  const pricePerYear = useMemo(() => pricePerMonth * 12, [pricePerMonth]);
-
-  const cigarettesAlreadySmoked = useMemo(
-    () => years * 365 * cigarettesPerDay,
-    [years],
-  );
-
-  const priceAlreadyPaid = useMemo(
-    () => cigarettesAlreadySmoked * (packageCost / 20),
-    [years],
-  );
+  const [pricePerMonth, setPricePerMonth] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    priceAlreadyPaid();
-
-    /* const pricePerDay = (Number(packageCost) / 20) * Number(cigarettesPerDay);
-     const pricePerMonth = pricePerDay * 30; 
-    const pricePerYear = pricePerMonth * 12;
-    const cigarettesAlreadySmoked = years * 365 * cigarettesPerDay;
-    const priceAlreadyPaid =
-      cigarettesAlreadySmoked * (Number(packageCost) / 20);
- */
-    console.log(
-      `cena za den ${pricePerDay}, cena za měsíc ${pricePerMonth}, cena za rok ${pricePerYear}, za celý život vykouřil ${cigarettesAlreadySmoked}, za život utratil za kouření korun ${priceAlreadyPaid}`,
+    setPricePerMonth(
+      getPricePerMonth(getPricePerDay(packageCost, cigarettesPerDay)),
     );
+
     setSubmitted(true);
   };
 
@@ -99,11 +89,16 @@ export const Calculator = () => {
               {submitted ? `${Math.round(pricePerMonth)} korun měsíčně.` : null}
             </p>
             <p className="calculatorResult">
-              {submitted ? `${Math.round(pricePerYear)} korun ročně.` : null}
+              {submitted
+                ? `${Math.round(getPricePerYear(pricePerMonth))} korun ročně.`
+                : null}
             </p>
             <p className="calculatorResult">
               {submitted
-                ? `Vykouřeno cigaret celkem: ${cigarettesAlreadySmoked}`
+                ? `Vykouřeno cigaret celkem: ${getCigarettesAlreadySmoked(
+                    years,
+                    cigarettesPerDay,
+                  )}`
                 : null}
             </p>
 
@@ -111,7 +106,10 @@ export const Calculator = () => {
               <p className="calculatorResult">
                 {submitted
                   ? `Celkově vynaložené finance na kouření: ${Math.round(
-                      priceAlreadyPaid,
+                      getPriceAlreadyPaid(
+                        getCigarettesAlreadySmoked(years, cigarettesPerDay),
+                        packageCost,
+                      ),
                     )}`
                   : null}
               </p>
@@ -119,6 +117,7 @@ export const Calculator = () => {
           </div>
         </div>
       </form>
+      {pricePerMonth > 0 && <ImageSlider pricePerMonth={pricePerMonth} />}
     </>
   );
 };

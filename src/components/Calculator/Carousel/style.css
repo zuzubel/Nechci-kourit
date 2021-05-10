@@ -17,7 +17,7 @@
 }
 
 .leftArrow {
-  background-image: url('../../../img/Carousel/slider_icons/left.png');
+  background-image: url('../../../img/Carousel/slider_icons/left.svg');
   width: 25px;
   height: 25px;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 }
 
 .rightArrow {
-  background-image: url('../../../img/Carousel/slider_icons/right.png');
+  background-image: url('../../../img/Carousel/slider_icons/right.svg');
   width: 25px;
   height: 25px;
   background-repeat: no-repeat;

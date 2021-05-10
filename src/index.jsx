@@ -13,7 +13,7 @@ const App = () => {
     <>
       <Navigation />
       <Calculator />
-      <ImageSlider />
+      
     </>
   );
 };

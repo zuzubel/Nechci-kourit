@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './style.css';
 import { SliderData } from './SliderData';
 
-export const ImageSlider = () => {
-  const length = SliderData.expensesCategory.upTo250.length;
+const mapPricePerMonthToExpensesCategory = (pricePerMonth) => {
+  if (pricePerMonth < 251) {
+    return SliderData.month.expensesCategory.upTo250;
+  }
+  if (pricePerMonth < 501) {
+    return SliderData.month.expensesCategory.upTo500;
+  }
+  if (pricePerMonth < 1001) {
+    return SliderData.month.expensesCategory.upTo1000;
+  }
+  if (pricePerMonth < 2001) {
+    return SliderData.month.expensesCategory.upTo2000;
+  }
+  if (pricePerMonth < 4001) {
+    return SliderData.month.expensesCategory.upTo4000;
+  }
+  if (pricePerMonth < 6001) {
+    return SliderData.month.expensesCategory.upTo6000;
+  }
+  return SliderData.month.expensesCategory.over6000;
+};
+
+export const ImageSlider = (props) => {
+  const expenses = useMemo(() => {
+    return mapPricePerMonthToExpensesCategory(props.pricePerMonth);
+  }, [props.pricePerMonth]);
+
+  const length = useMemo(() => {
+    return expenses.length;
+  }, [expenses]);
 
   const [current, setCurrent] = useState(0);
 
@@ -21,7 +49,7 @@ export const ImageSlider = () => {
     <section className="slider">
       <div className="leftArrow" onClick={prevSlide} />
       <div className="rightArrow" onClick={nextSlide} />
-      {SliderData.expensesCategory.upTo250.map((slide, index) => {
+      {expenses.map((slide, index) => {
         return (
           <div
             className={index === current ? 'slide active' : 'slide'}
