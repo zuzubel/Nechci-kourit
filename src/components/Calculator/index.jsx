@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import './style.css';
 import { ImageSlider } from './Carousel/ImageSlider';
+import { SliderData } from '../Calculator/Carousel/SliderData';
 
+//výpočty z kalkulačky
 const getPricePerDay = (packageCost, cigarettesPerDay) => {
   if (packageCost === '' || cigarettesPerDay === '') {
     return 0;
@@ -20,19 +22,80 @@ const getCigarettesAlreadySmoked = (years, cigarettesPerDay) =>
 const getPriceAlreadyPaid = (cigarettesAlreadySmoked, packageCost) =>
   cigarettesAlreadySmoked * (packageCost / 20);
 
+//mapování výsledků do správné cesty ke skupině výdajů za měsíc
+const mapPricePerMonthToExpensesCategory = (pricePerMonth) => {
+  if (pricePerMonth < 251) {
+    return SliderData.month.expensesCategory.upTo250;
+  }
+  if (pricePerMonth < 501) {
+    return SliderData.month.expensesCategory.upTo500;
+  }
+  if (pricePerMonth < 1001) {
+    return SliderData.month.expensesCategory.upTo1000;
+  }
+  if (pricePerMonth < 2001) {
+    return SliderData.month.expensesCategory.upTo2000;
+  }
+  if (pricePerMonth < 4001) {
+    return SliderData.month.expensesCategory.upTo4000;
+  }
+  if (pricePerMonth < 6001) {
+    return SliderData.month.expensesCategory.upTo6000;
+  }
+  return SliderData.month.expensesCategory.over6000;
+};
+
+//mapování výsledků do správné cesty ke skupině výdajů za měsíc
+const mapPricePerYearToExpensesCategory = (pricePerYear) => {
+  if (pricePerYear < 3001) {
+    return SliderData.year.expensesCategory.upTo3000;
+  }
+  if (pricePerYear < 6001) {
+    return SliderData.year.expensesCategory.upTo6000;
+  }
+  if (pricePerYear < 12001) {
+    return SliderData.year.expensesCategory.upTo12000;
+  }
+  if (pricePerYear < 24001) {
+    return SliderData.year.expensesCategory.upTo24000;
+  }
+  if (pricePerYear < 48001) {
+    return SliderData.year.expensesCategory.upTo48000;
+  }
+  if (pricePerYear < 72001) {
+    return SliderData.year.expensesCategory.upTo72000;
+  }
+  return SliderData.year.expensesCategory.over72000;
+};
+
 export const Calculator = () => {
   const [cigarettesPerDay, setCigarettesPerDay] = useState('');
   const [packageCost, setPackageCost] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [years, setYears] = useState('');
   const [pricePerMonth, setPricePerMonth] = useState(0);
+  const [pricePerYear, setPricePerYear] = useState(0);
+  const [priceAlreadyPaid, setPriceAlreadyPaid] = useState(0);
+
+  //uložení výsledku mapovací funkce do správné proměnné
+  const expensesPerMonth = useMemo(() => {
+    return mapPricePerMonthToExpensesCategory(pricePerMonth);
+  }, [pricePerMonth]);
+
+  const expensesPerYear = useMemo(() => {
+    return mapPricePerYearToExpensesCategory(pricePerYear);
+  }, [pricePerYear]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setPricePerMonth(
       getPricePerMonth(getPricePerDay(packageCost, cigarettesPerDay)),
     );
-
+    setPricePerYear(getPricePerYear(pricePerMonth));
+    setPriceAlreadyPaid(
+      packageCost,
+      getCigarettesAlreadySmoked(years, cigarettesPerDay),
+    );
     setSubmitted(true);
   };
 
@@ -117,7 +180,9 @@ export const Calculator = () => {
           </div>
         </div>
       </form>
-      {pricePerMonth > 0 && <ImageSlider pricePerMonth={pricePerMonth} />}
+      {pricePerMonth > 0 && <ImageSlider expenses={expensesPerMonth} />}
+      {pricePerMonth > 0 && <ImageSlider expenses={expensesPerYear} />}
+      {/* {pricePerMonth > 0 && <ImageSlider expenses={expensesAlreadyPaid} />} */}
     </>
   );
 };

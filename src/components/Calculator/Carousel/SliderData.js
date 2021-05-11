@@ -114,111 +114,115 @@ export const SliderData = {
     },
   },
   year: {
-    upTo3000: [
-      {
-        name: 'highwayPermition',
-        image: 'highwayPermition',
-      },
-    ],
-    upTo6000: [
-      {
-        name: 'somethingUpTo6000',
-        image: 'somethingUpTo6000',
-      },
-    ],
-    upTo12000: [
-      {
-        name: 'somethingUpTo12000',
-        image: 'somethingUpTo12000',
-      },
-    ],
+    expensesCategory: {
+      upTo3000: [
+        {
+          name: 'highwayPermition',
+          image: 'highwayPermition',
+        },
+      ],
+      upTo6000: [
+        {
+          name: 'somethingUpTo6000',
+          image: 'somethingUpTo6000',
+        },
+      ],
+      upTo12000: [
+        {
+          name: 'somethingUpTo12000',
+          image: 'somethingUpTo12000',
+        },
+      ],
 
-    upTo24000: [
-      {
-        name: 'somethingUpTo24000',
-        image: 'somethingUpTo24000',
-      },
-    ],
-    upTo48000: [
-      {
-        name: 'somethingUpTo48000',
-        image: 'somethingUpTo48000',
-      },
-    ],
-    upTo72000: [
-      {
-        name: 'somethingUpTo72000',
-        image: 'somethingUpTo72000',
-      },
-    ],
-    over72001: [
-      {
-        name: 'somethingOver72001',
-        image: 'somethingOver72001',
-      },
-    ],
+      upTo24000: [
+        {
+          name: 'somethingUpTo24000',
+          image: 'somethingUpTo24000',
+        },
+      ],
+      upTo48000: [
+        {
+          name: 'somethingUpTo48000',
+          image: 'somethingUpTo48000',
+        },
+      ],
+      upTo72000: [
+        {
+          name: 'somethingUpTo72000',
+          image: 'somethingUpTo72000',
+        },
+      ],
+      over72000: [
+        {
+          name: 'somethingOver72001',
+          image: 'somethingOver72001',
+        },
+      ],
+    },
   },
   alreadyPaid: {
-    upTo3000: [
-      {
-        name: 'highwayPermition',
-        image: 'highwayPermition',
-      },
-    ],
-    upTo6000: [
-      {
-        name: 'somethingUpTo6000',
-        image: 'somethingUpTo6000',
-      },
-    ],
-    upTo12000: [
-      {
-        name: 'somethingUpTo12000',
-        image: 'somethingUpTo12000',
-      },
-    ],
+    expensesCategory: {
+      upTo3000: [
+        {
+          name: 'highwayPermition',
+          image: 'highwayPermition',
+        },
+      ],
+      upTo6000: [
+        {
+          name: 'somethingUpTo6000',
+          image: 'somethingUpTo6000',
+        },
+      ],
+      upTo12000: [
+        {
+          name: 'somethingUpTo12000',
+          image: 'somethingUpTo12000',
+        },
+      ],
 
-    upTo24000: [
-      {
-        name: 'somethingUpTo24000',
-        image: 'somethingUpTo24000',
-      },
-    ],
-    upTo48000: [
-      {
-        name: 'somethingUpTo48000',
-        image: 'somethingUpTo48000',
-      },
-    ],
-    upTo72000: [
-      {
-        name: 'somethingUpTo72000',
-        image: 'somethingUpTo72000',
-      },
-    ],
-    upTo140000: [
-      {
-        name: 'somethingUpTo140000',
-        image: 'somethingUpTo140000',
-      },
-    ],
-    upTo288000: [
-      {
-        name: 'somethingUpTo288000',
-        image: 'somethingUpTo288000',
-      },
-    ],
-    upTo576000: [
-      {
-        name: 'somethingUpTo576000',
-        image: 'somethingUpTo576000',
-      },
-    ],
-    over576001: [
-      {
-        name: 'somethingOver576001',
-        image: 'somethingOver576001',
-      },
-    ],
+      upTo24000: [
+        {
+          name: 'somethingUpTo24000',
+          image: 'somethingUpTo24000',
+        },
+      ],
+      upTo48000: [
+        {
+          name: 'somethingUpTo48000',
+          image: 'somethingUpTo48000',
+        },
+      ],
+      upTo72000: [
+        {
+          name: 'somethingUpTo72000',
+          image: 'somethingUpTo72000',
+        },
+      ],
+      upTo140000: [
+        {
+          name: 'somethingUpTo140000',
+          image: 'somethingUpTo140000',
+        },
+      ],
+      upTo288000: [
+        {
+          name: 'somethingUpTo288000',
+          image: 'somethingUpTo288000',
+        },
+      ],
+      upTo576000: [
+        {
+          name: 'somethingUpTo576000',
+          image: 'somethingUpTo576000',
+        },
+      ],
+      over576001: [
+        {
+          name: 'somethingOver576001',
+          image: 'somethingOver576001',
+        },
+      ],
+    },
   },
 };
