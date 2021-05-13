@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .active {
@@ -13,7 +14,9 @@
 
 .img_carousel {
   width: 80%;
+  height: fit-content;
   border-radius: 5px;
+  max-height: 100%;
 }
 
 .leftArrow {

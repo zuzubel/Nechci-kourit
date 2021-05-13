@@ -180,8 +180,20 @@ export const Calculator = () => {
           </div>
         </div>
       </form>
-      {pricePerMonth > 0 && <ImageSlider expenses={expensesPerMonth} />}
-      {pricePerMonth > 0 && <ImageSlider expenses={expensesPerYear} />}
+      <div className="expensesCategory">
+        {pricePerMonth > 0 && (
+          <h4 className="expensesHeader">
+            A co si místo cigaret dopřát každý měsíc tohle?
+          </h4>
+        )}
+        {pricePerMonth > 0 && <ImageSlider expenses={expensesPerMonth} />}
+      </div>
+      <div className="expensesCategory">
+        {pricePerMonth > 0 && (
+          <h4 className="expensesHeader">A každý rok, třeba tohle: </h4>
+        )}
+        {pricePerMonth > 0 && <ImageSlider expenses={expensesPerYear} />}
+      </div>
       {/* {pricePerMonth > 0 && <ImageSlider expenses={expensesAlreadyPaid} />} */}
     </>
   );

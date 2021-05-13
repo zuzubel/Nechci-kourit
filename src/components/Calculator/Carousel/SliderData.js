@@ -3,6 +3,24 @@ import massage from '../../../img/Carousel/month_upTo250/alan-caishan-cU53ZFBr3l
 import cinema from '../../../img/Carousel/month_upTo250/krists-luhaers-AtPWnYNDJnM-unsplash.jpg';
 import coffee from '../../../img/Carousel/month_upTo250/seven-dimensions-ZPVIo1404wM-unsplash.jpg';
 import cosmetics from '../../../img/Carousel/month_upTo500/engin-akyurt-g-m8EDc4X6Q-unsplash (1).jpg';
+import new_clothes from '../../../img/Carousel/month_upTo500/markus-winkler-bfuy8aRCRt4-unsplash.jpg'
+import gas_station from '../../../img/Carousel/month_upTo500/sippakorn-yamkasikorn-0aJOTBQfEFE-unsplash.jpg'
+import hairdresser from '../../../img/Carousel/month_upTo500/em-m-HyuQsyOiV5I-unsplash.jpg'
+import dinner from '../../../img/Carousel/month_upTo1000/sj-4Ott5vqaPrw-unsplash.jpg'
+import theatre from '../../../img/Carousel/month_upTo1000/gwen-king-m3th3rIQ9-w-unsplash.jpg'
+import plane_ticket from '../../../img/Carousel/month_upTo1000/jeshoots-com-mSESwdMZr-A-unsplash.jpg'
+import dinner_for_two from '../../../img/Carousel/month_upTo2000/hanxiao-QB0W88Qsfz8-unsplash.jpg'
+import spa_day from '../../../img/Carousel/month_upTo2000/engin-akyurt-ZbzYDboN7fg-unsplash.jpg'
+import theatre_for_two from '../../../img/Carousel/month_upTo2000/gwen-king-m3th3rIQ9-w-unsplash.jpg'
+import plane_ticket_upTo2000 from '../../../img/Carousel/month_upTo2000/jeshoots-com-mSESwdMZr-A-unsplash.jpg'
+import spa_weekend from '../../../img/Carousel/month_upTo4000/engin-akyurt-ZbzYDboN7fg-unsplash.jpg'
+import cooking_class from '../../../img/Carousel/month_upTo4000/johnathan-macedo-4NQEvxW2_4w-unsplash.jpg' 
+import plane_tickets from '../../../img/Carousel/month_upTo4000/sacha-verheij-5bwgW8_9OPs-unsplash.jpg'
+import kids_activities from '../../../img/Carousel/month_upTo6000/kazuo-ota-sbpZBs1qR9k-unsplash.jpg'
+import plane_tickets_over6000 from '../../../img/Carousel/month_over6000/sacha-verheij-5bwgW8_9OPs-unsplash.jpg'
+import highwayPermition from '../../../img/Carousel/year_upTo3000/g-r-mottez-cT9Qk-z6OOo-unsplash.jpg' 
+
+
 
 export const SliderData = {
   month: {
@@ -33,82 +51,82 @@ export const SliderData = {
         },
         {
           name: 'new_clothes',
-          image: 'markus-winkler-bfuy8aRCRt4-unsplash.jpg',
+          image: new_clothes,
         },
         {
           name: 'gas_station',
-          image: 'sippakorn-yamkasikorn-0aJOTBQfEFE-unsplash.jpg',
+          image: gas_station,
         },
         {
           name: 'hairdresser',
-          image: 'em-m-HyuQsyOiV5I-unsplash.jpg',
+          image: hairdresser,
         },
       ],
 
       upTo1000: [
         {
           name: 'dinner',
-          image: 'sj-4Ott5vqaPrw-unsplash.jpg',
+          image: dinner,
         },
         {
           name: 'theatre',
-          image: 'gwen-king-m3th3rIQ9-w-unsplash.jpg',
+          image: theatre,
         },
         {
           name: 'plane_ticket',
-          image: 'jeshoots-com-mSESwdMZr-A-unsplash.jpg',
+          image: plane_ticket,
         },
       ],
 
       upTo2000: [
         {
-          name: 'dinner',
-          image: 'hanxiao-QB0W88Qsfz8-unsplash.jpg',
+          name: 'dinner_for_two',
+          image: dinner_for_two,
         },
         {
           name: 'spa_day',
-          image: 'engin-akyurt-ZbzYDboN7fg-unsplash.jpg',
+          image: spa_day,
         },
         {
           name: 'theatre_for_two',
-          image: 'gwen-king-m3th3rIQ9-w-unsplash.jpg',
+          image: theatre_for_two,
         },
         {
-          name: 'plane_ticket',
-          image: 'jeshoots-com-mSESwdMZr-A-unsplash.jpg',
+          name: 'plane_ticket_upTo2000',
+          image: plane_ticket_upTo2000,
         },
       ],
 
       upTo4000: [
         {
           name: 'spa_weekend',
-          image: 'engin-akyurt-ZbzYDboN7fg-unsplash.jpg',
+          image: spa_weekend,
         },
         {
           name: 'cooking_class',
-          image: 'johnathan-macedo-4NQEvxW2_4w-unsplash.jpg',
+          image: cooking_class,
         },
         {
           name: 'plane_tickets',
-          image: 'sacha-verheij-5bwgW8_9OPs-unsplash.jpg',
+          image: plane_tickets,
         },
       ],
 
       upTo6000: [
         {
           name: 'kids_activities',
-          image: 'kazuo-ota-sbpZBs1qR9k-unsplash.jpg',
+          image: kids_activities,
         },
         {
           name: 'plane_tickets',
-          image: 'sacha-verheij-5bwgW8_9OPs-unsplash.jpg',
+          image: plane_tickets,
         },
       ],
 
       over6000: [
         {
-          name: 'plane_tickets',
-          image: 'sacha-verheij-5bwgW8_9OPs-unsplash.jpg',
+          name: 'plane_tickets_over6000',
+          image: plane_tickets_over6000,
         },
       ],
     },
@@ -118,7 +136,7 @@ export const SliderData = {
       upTo3000: [
         {
           name: 'highwayPermition',
-          image: 'highwayPermition',
+          image: highwayPermition,
         },
       ],
       upTo6000: [

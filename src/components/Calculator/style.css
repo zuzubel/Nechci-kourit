@@ -81,6 +81,10 @@
   margin-bottom: 4px;
 }
 
+.expensesHeader {
+  text-align: center;
+}
+
 @media screen and (min-width: 560px) {
   .inputsContainer {
     display: grid;
