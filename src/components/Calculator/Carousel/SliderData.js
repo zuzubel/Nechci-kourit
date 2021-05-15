@@ -29,18 +29,22 @@ export const SliderData = {
         {
           name: 'massage',
           image: massage,
+          description: 'Masáž',
         },
         {
           name: 'pizza',
           image: pizza,
+          description: 'Doručení pizzy',
         },
         {
           name: 'cinema',
           image: cinema,
+          description: 'Lístek do kina',
         },
         {
           name: 'coffee',
           image: coffee,
+          description: 'Kafe a zákusek v kavárně',
         },
       ],
 
@@ -48,18 +52,22 @@ export const SliderData = {
         {
           name: 'cosmetic',
           image: cosmetics,
+          description: 'Kosmetika',
         },
         {
           name: 'new_clothes',
           image: new_clothes,
+          description: 'Nový kousek oblečení',
         },
         {
           name: 'gas_station',
           image: gas_station,
+          description: 'Pohonné hmoty',
         },
         {
           name: 'hairdresser',
           image: hairdresser,
+          description: 'Návštěva kadeřníka',
         },
       ],
 
@@ -67,14 +75,17 @@ export const SliderData = {
         {
           name: 'dinner',
           image: dinner,
+          description: 'Večeře v restauraci',
         },
         {
           name: 'theatre',
           image: theatre,
+          description: 'Lístek do divadla',
         },
         {
           name: 'plane_ticket',
           image: plane_ticket,
+          description: 'Letenka po Evropě',
         },
       ],
 
@@ -82,18 +93,22 @@ export const SliderData = {
         {
           name: 'dinner_for_two',
           image: dinner_for_two,
+          description: 'Večeře pro dva',
         },
         {
           name: 'spa_day',
           image: spa_day,
+          description: 'Wellness den',
         },
         {
           name: 'theatre_for_two',
           image: theatre_for_two,
+          description: 'Dva lístky do divadla',
         },
         {
           name: 'plane_ticket_upTo2000',
           image: plane_ticket_upTo2000,
+          description: 'Letenka',
         },
       ],
 
@@ -101,14 +116,17 @@ export const SliderData = {
         {
           name: 'spa_weekend',
           image: spa_weekend,
+          description: 'Wellness pobyt',
         },
         {
           name: 'cooking_class',
           image: cooking_class,
+          description: 'Škola vaření',
         },
         {
           name: 'plane_tickets',
           image: plane_tickets,
+          description: 'Dvě letenky po Evropě',
         },
       ],
 
@@ -116,10 +134,12 @@ export const SliderData = {
         {
           name: 'kids_activities',
           image: kids_activities,
+          description: 'Dětské kroužky',
         },
         {
           name: 'plane_tickets',
           image: plane_tickets,
+          description: 'Letenky',
         },
       ],
 
@@ -127,6 +147,7 @@ export const SliderData = {
         {
           name: 'plane_tickets_over6000',
           image: plane_tickets_over6000,
+          description: 'Letenky',
         },
       ],
     },

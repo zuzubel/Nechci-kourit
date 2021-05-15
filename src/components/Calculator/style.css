@@ -64,6 +64,10 @@
   transform: scale(1);
 }
 
+.resultContainer {
+  margin-top: 16px;
+}
+
 .calculatorResults {
   margin: 0;
 }

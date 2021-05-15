@@ -38,6 +38,9 @@ export const ImageSlider = (props) => {
                 alt={slide.name}
               />
             )}
+            {index === current && (
+              <p className="description">{slide.description}</p>
+            )}
           </div>
         );
       })}

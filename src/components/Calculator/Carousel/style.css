@@ -10,13 +10,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .img_carousel {
   width: 80%;
-  height: fit-content;
-  border-radius: 5px;
+  height: 200px;
+  object-fit: cover;
+  object-position: bottom;
+  border-radius: 3px;
   max-height: 100%;
+}
+
+.active .description {
+  box-sizing: border-box;
+  text-align: center;
+  opacity: 0.4;
+  font-size: 0.9em;
+  padding: 0;
+  margin: 0;
+}
+
+.active .description p {
+  color: white;
 }
 
 .leftArrow {
@@ -26,7 +42,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  left: 13%;
+  left: 1%;
   top: 50%;
 }
 
@@ -37,6 +53,45 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
-  right: 13%;
+  right: 1%;
   top: 50%;
+}
+
+@media screen and (min-width: 400px) {
+  .img_carousel {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .active .img_carousel {
+    transition: transform 0.4s;
+  }
+
+  .active:hover .img_carousel {
+    transform: scale(1.1);
+  }
+
+  .active .description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    opacity: 0.6;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.4s;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+
+  .active .description {
+    color: white;
+  }
+
+  .active:hover .description {
+    transform: translateY(0);
+  }
 }
