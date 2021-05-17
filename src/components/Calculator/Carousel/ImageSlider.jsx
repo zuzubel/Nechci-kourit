@@ -23,24 +23,26 @@ export const ImageSlider = (props) => {
 
   return (
     <section className="slider">
-      <div className="leftArrow" onClick={prevSlide} />
-      <div className="rightArrow" onClick={nextSlide} />
       {expenses.map((slide, index) => {
         return (
           <div
             className={index === current ? 'slide active' : 'slide'}
             key={index}
           >
-            {index === current && (
-              <img
-                className="img_carousel"
-                src={slide.image}
-                alt={slide.name}
-              />
-            )}
-            {index === current && (
-              <p className="description">{slide.description}</p>
-            )}
+            <div className="img_carousel_container">
+              {index === current && (
+                <img
+                  className="img_carousel"
+                  src={slide.image}
+                  alt={slide.name}
+                />
+              )}
+              <div className="leftArrow" onClick={prevSlide} />
+              <div className="rightArrow" onClick={nextSlide} />
+              {index === current && (
+                <p className="description">{slide.description}</p>
+              )}
+            </div>
           </div>
         );
       })}
